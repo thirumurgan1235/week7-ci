@@ -1,0 +1,14 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio cache
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+*.log
+*.vsidx

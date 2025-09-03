@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Varudhini@123
+    ports:
+      - "1433:1433"
+
+  studentwebapi:
+    image: ${DOCKER_REGISTRY-}studentwebapi
+    build:
+      context: .
+      dockerfile: StudentWebApi/Dockerfile
+    depends_on:
+      - sqlserver
+    ports:
+      - "85:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

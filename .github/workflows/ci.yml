@@ -1,0 +1,20 @@
+name: Week7 CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1 started
+        run: echo "job1 started"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: job2 started
+        run: echo "job2 started"
